@@ -1,1 +1,11 @@
-// app global css in SCSS form
+ @font-face {
+    font-family: 'iransans';
+      src: url('../../public/fonts/Iranian\ Sans.ttf ') format('truetype');
+    font-weight : normal;
+    font-style : normal;
+  }
+  
+  body {
+    font-family: 'iransans';
+}
+

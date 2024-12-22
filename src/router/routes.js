@@ -1,18 +1,34 @@
+import MainLayout from 'layouts/MainLayout.vue'; 
+import HomePage from 'pages/HomePage.vue'; 
+import ProductManagment from 'pages/ProductManagment.vue'; 
+import ProductDetail from 'pages/ProductDetail.vue'; 
+
 const routes = [
   {
-    path: '/',
-    component: () => import('layouts/MainLayout.vue'),
+    path: '/', 
+    component: MainLayout, 
     children: [
-      { path: '', component: () => import('pages/IndexPage.vue') }
-    ]
+      { 
+        path: '',
+        component: HomePage ,
+        name : 'HomePage'
+      },
+      { 
+        path: 'products', 
+        component: ProductManagment, 
+        name: 'ProductManagment' 
+      },
+      {
+        path: 'product/:id', 
+        component: ProductDetail,
+        name: 'ProductDetail',
+      },
+    ],
   },
-
-  // Always leave this as last one,
-  // but you can also remove it
   {
     path: '/:catchAll(.*)*',
     component: () => import('pages/ErrorNotFound.vue')
   }
-]
+];
 
-export default routes
+export default routes;
